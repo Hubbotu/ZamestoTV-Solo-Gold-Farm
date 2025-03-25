@@ -120,7 +120,7 @@ function SoloGold_Calendar:ShowCalendarWindow()
     local fullDate = date("%B %d, %Y")
     local soloGoldStatus, nextSoloGoldStartDate, nextSoloGoldEndDate = self:GetNextEventInfo(soloGoldDaysTimestamps, soloGoldDaysEndsTimestamps)
     local superSoloGoldStatus, nextSuperSoloGoldStartDate, nextSuperSoloGoldEndDate = self:GetNextEventInfo(superSoloGoldDaysTimestamps, superSoloGoldDaysEndsTimestamps)
-    local BonusStatus, nextBonusStartDate, nextPetBonusEndDate = self:GetNextEventInfo(GoldBonusDaysTimestamps, GoldBonusDaysEndsTimestamps)
+    local BonusStatus, nextBonusStartDate, nextBonusEndDate = self:GetNextEventInfo(GoldBonusDaysTimestamps, GoldBonusDaysEndsTimestamps)
 
     -- ADD CURRENT DAY AND DATE
     local dayLabel = window:CreateFontString(nil, "OVERLAY", "GameFontNormalLarge")
@@ -163,7 +163,7 @@ function SoloGold_Calendar:ShowCalendarWindow()
     superSoloGoldDateLabel:SetPoint("TOP", superSoloGoldLabel, "BOTTOM", 0, -5)
     superSoloGoldDateLabel:SetText("Start: " .. nextSuperSoloGoldStartDate .. "\nEnd: " .. nextSuperSoloGoldEndDate)
 
-    -- ADD PET BATTLE BONUS DAY LABEL
+    -- ADD BONUS DAY LABEL
     local BonusLabel = window:CreateFontString(nil, "OVERLAY", "GameFontNormal")
     BonusLabel:SetPoint("TOP", superSoloGoldDateLabel, "BOTTOM", 0, -20)
 
@@ -177,7 +177,7 @@ function SoloGold_Calendar:ShowCalendarWindow()
 
     local BonusDateLabel = window:CreateFontString(nil, "OVERLAY", "GameFontNormal")
     BonusDateLabel:SetPoint("TOP", BonusLabel, "BOTTOM", 0, -5)
-    BonusDateLabel:SetText("Start: " .. nextBonusStartDate .. "\nEnd: " .. nextPetBonusEndDate)
+    BonusDateLabel:SetText("Start: " .. nextBonusStartDate .. "\nEnd: " .. nextBonusEndDate)
 
     CalendarFrame:HookScript("OnHide", function()
         window:Hide()
