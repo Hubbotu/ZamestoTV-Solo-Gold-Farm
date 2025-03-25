@@ -120,7 +120,7 @@ function SoloGold_Calendar:ShowCalendarWindow()
     local fullDate = date("%B %d, %Y")
     local soloGoldStatus, nextSoloGoldStartDate, nextSoloGoldEndDate = self:GetNextEventInfo(soloGoldDaysTimestamps, soloGoldDaysEndsTimestamps)
     local superSoloGoldStatus, nextSuperSoloGoldStartDate, nextSuperSoloGoldEndDate = self:GetNextEventInfo(superSoloGoldDaysTimestamps, superSoloGoldDaysEndsTimestamps)
-    local petBonusStatus, nextPetBonusStartDate, nextPetBonusEndDate = self:GetNextEventInfo(GoldBonusDaysTimestamps, GoldBonusDaysEndsTimestamps)
+    local BonusStatus, nextBonusStartDate, nextPetBonusEndDate = self:GetNextEventInfo(GoldBonusDaysTimestamps, GoldBonusDaysEndsTimestamps)
 
     -- ADD CURRENT DAY AND DATE
     local dayLabel = window:CreateFontString(nil, "OVERLAY", "GameFontNormalLarge")
@@ -164,20 +164,20 @@ function SoloGold_Calendar:ShowCalendarWindow()
     superSoloGoldDateLabel:SetText("Start: " .. nextSuperSoloGoldStartDate .. "\nEnd: " .. nextSuperSoloGoldEndDate)
 
     -- ADD PET BATTLE BONUS DAY LABEL
-    local petBonusLabel = window:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-    petBonusLabel:SetPoint("TOP", superSoloGoldDateLabel, "BOTTOM", 0, -20)
+    local BonusLabel = window:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+    BonusLabel:SetPoint("TOP", superSoloGoldDateLabel, "BOTTOM", 0, -20)
 
-    if string.find(petBonusStatus, "Ongoing") then
-        petBonusLabel:SetText("Midsummer Fire Festival: |cff00ff00" .. petBonusStatus .. "|r")
-    elseif petBonusStatus == "No Upcoming Dates!" then
-        petBonusLabel:SetText("Midsummer Fire Festival: |cff00ff00" .. petBonusStatus .. "|r")
+    if string.find(BonusStatus, "Ongoing") then
+        BonusLabel:SetText("Midsummer Fire Festival: |cff00ff00" .. BonusStatus .. "|r")
+    elseif BonusStatus == "No Upcoming Dates!" then
+        BonusLabel:SetText("Midsummer Fire Festival: |cff00ff00" .. BonusStatus .. "|r")
     else
-        petBonusLabel:SetText("Midsummer Fire Festival: |cff00ff00" .. petBonusStatus .. " Days Left|r")
+        BonusLabel:SetText("Midsummer Fire Festival: |cff00ff00" .. BonusStatus .. " Days Left|r")
     end
 
-    local petBonusDateLabel = window:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-    petBonusDateLabel:SetPoint("TOP", petBonusLabel, "BOTTOM", 0, -5)
-    petBonusDateLabel:SetText("Start: " .. nextPetBonusStartDate .. "\nEnd: " .. nextPetBonusEndDate)
+    local BonusDateLabel = window:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+    BonusDateLabel:SetPoint("TOP", BonusLabel, "BOTTOM", 0, -5)
+    BonusDateLabel:SetText("Start: " .. nextBonusStartDate .. "\nEnd: " .. nextPetBonusEndDate)
 
     CalendarFrame:HookScript("OnHide", function()
         window:Hide()
