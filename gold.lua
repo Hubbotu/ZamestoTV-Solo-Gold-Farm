@@ -10,23 +10,19 @@ local path_meta = {__index = {
 
 ns.map_spellids = {
     -- [2022] = 0, -- The Waking Shores
-    -- [2023] = 0, -- Ohn'ahran Plains
-    -- [2024] = 0, -- The Azure Span
-    -- [2085] = 0, -- The Primalist Future
     -- [2025] = 0, -- Thaldraszus
     -- [2200] = 0, -- Emerald Dream
 	-- [2133] = 0, -- Zaralek Cavern
+    -- [2024] = 0, -- The Azure Span
+	
+    -- [2339] = 0, -- Dornogal
+    -- [2214] = 0, -- ringing deeps
+    -- [2215] = 0, -- hallowfall
+	-- [2248] = 0, -- dorn	
 }
 
 ns.points = {
     [2022] = { -- The Waking Shores
-        [24305559] = ({
-            label = L["Obsidian Citadel"],
-            cont = true,
-            Zamro = true,
-            note = L["Obsidian Citadel Note"],
-            pathto = "Interface\\Addons\\"..myname.."\\Icons\\tokens.tga",
-        }),
         [25575695] = ({
             label = L["Alvin the Anvil"],
             cont = true,
@@ -56,13 +52,6 @@ ns.points = {
             note = L["Misty Satchel Note"],
             pathto = "Interface\\Addons\\"..myname.."\\Icons\\chest.tga",
         }),
-		[47458353] = ({
-            label = L["Camp"],
-            cont = true,
-            Zamro = true,
-            note = L["Camp Note"],
-            pathto = "Interface\\Addons\\"..myname.."\\Icons\\tokens.tga",
-        }),
         [29405980] = ({
             label = L["Rohzor"],
             cont = true,
@@ -71,51 +60,6 @@ ns.points = {
             note = L["Rohzor Note"],
             pathto = "Interface\\Addons\\"..myname.."\\Icons\\bskull.tga",
         }),
-    },
-	[2023] = { -- Ohn'ahran Plains
-        [74977068] = ({
-            label = L["Fyrakk Assaults"],
-            cont = true,
-			quest = 75447,  
-            Zamro = true,
-            note = L["Fyrakk Assaults Note"],
-            pathto = "Interface\\Addons\\"..myname.."\\Icons\\tokens.tga",
-        }),
-        [54633715] = ({
-            label = L["Arena"],
-            cont = true,    
-		    Zamro = true,
-            note = L["Arena Note"],
-            pathto = "Interface\\Addons\\"..myname.."\\Icons\\tokens.tga",
-        }),
-    },
-    [2024] = { -- The Azure Span
-        [13945012] = ({
-            label = L["Community Feast"],
-            cont = true,
-		    quest = 70893, 			
-            Zamro = true,
-            note = L["Community Feast Note"],
-            pathto = "Interface\\Addons\\"..myname.."\\Icons\\tokens.tga",
-        }),
-	    [55433442] = ({
-            label = L["Fyrakk Assaults"],
-            cont = true,
-		    quest = 75447, 
-            Zamro = true,
-            note = L["Fyrakk Assaults Note"],
-            pathto = "Interface\\Addons\\"..myname.."\\Icons\\tokens.tga",
-	    }),
-    },
-    [2085] = { -- The Primalist Future
-        [27902580] = {
-            label = L["Elemental Bound"],
-            cont = true,
-			quest = 71995,
-            Zamro = true,
-            note = L["Elemental Bound Note"],
-            pathto = "Interface\\Addons\\"..myname.."\\Icons\\chest.tga",
-        },
     },
 	[2133] = { -- Zaralek Cavern
         [28605100] = {
@@ -127,22 +71,16 @@ ns.points = {
             pathto = "Interface\\Addons\\"..myname.."\\Icons\\bskull.tga",
         },
     },
+	[2024] = { -- The Azure Span
+        [67601860] = {
+            label = L["Snowclaw Cub"],
+            cont = true,
+            Zamro = true,
+            note = L["Snowclaw Cub Note"],
+            pathto = "Interface\\Addons\\"..myname.."\\Icons\\tokens.tga",
+        },
+    },	
 	[2025] = { -- Thaldraszus
-        [59848221] = ({
-            label = L["Elemental Portal"],
-            cont = true,
-            Zamro = true,
-            note = L["Elemental Portal Note"],
-            pathto = "Interface\\Addons\\"..myname.."\\Icons\\portal.tga",
-        }),
-	    [60204160] = ({
-            label = L["Elegant Canvas Brush"],
-            cont = true,
-			quest = 70609,
-            Zamro = true,
-            note = L["Elegant Canvas Brush Note"],
-            pathto = "Interface\\Addons\\"..myname.."\\Icons\\chest.tga",
-        }),
 	    [64851655] = ({
             label = L["Surveyor's Magnifying Glass"],
             cont = true,
@@ -168,6 +106,42 @@ ns.points = {
             pathto = "Interface\\Addons\\"..myname.."\\Icons\\tokens.tga",				
 	    }),
     },
+    [2339] = { -- Dornogal
+        [59175580] = ({
+            label = L["Gold"],
+            cont = true,		
+            Zamro = true,
+            note = L["Gold Note"],
+            pathto = "Interface\\Addons\\"..myname.."\\Icons\\tokens.tga",
+        }),
+    },
+	[2214] = { -- ringing deeps
+        [43543524] = ({
+            label = L["Gold 2"],
+            cont = true,			
+            Zamro = true, 			
+            note = L["Gold 2 Note"],
+            pathto = "Interface\\Addons\\"..myname.."\\Icons\\tokens.tga",
+        }),	
+    },
+	[2248] = { -- dorn
+        [55185121] = ({
+            label = L["Gold 4"],
+            cont = true,			
+            Zamro = true, 			
+            note = L["Gold 4 Note"],
+            pathto = "Interface\\Addons\\"..myname.."\\Icons\\tokens.tga",
+        }),	
+    },	
+    [2215] = { -- hallowfall
+        [18761772] = ({
+            label = L["Gold 3"],
+            cont = true,				
+            Zamro = true,
+            note = L["Gold 3 Note"],
+            pathto = "Interface\\Addons\\"..myname.."\\Icons\\tokens.tga",
+        }),	
+    },		
     [2200] = { -- Emerald Dream
         [45801860] = {
            label = L["Moltenbinder Disciple"],

@@ -1,91 +1,49 @@
 local ADDON, SoloGold_Calendar = ...
 
--- LIST OF SOLOGOLD START DAYS
+-- 1 START DAYS
 local soloGoldDays = {
-    "2025-03-02",
     "2025-04-06",
-    "2025-05-17",
+    "2025-05-04",
     "2025-06-01",
-    "2025-07-16",
-    "2025-08-01",
-    "2025-09-16",
-    "2025-10-31",
-    "2025-11-30",
-    "2025-12-15",
+    "2025-07-06",
+    "2025-08-03",
+    "2025-09-07",
+    "2025-10-05",
+    "2025-11-02",
+    "2025-12-07",
 }
 
--- LIST OF SOLOGOLD END DAYS
+-- 1 END DAYS
 local soloGoldDaysEnds = {
-    "2025-03-08",
-    "2025-04-12",
-    "2025-05-17",
-    "2025-06-01",
-    "2025-07-16",
-    "2025-08-01",
-    "2025-09-16",
-    "2025-10-31",
-    "2025-11-30",
-    "2025-12-15",
+    "2025-04-13",
+    "2025-05-11",
+    "2025-06-08",
+    "2025-07-13",
+    "2025-08-10",
+    "2025-09-14",
+    "2025-10-12",
+    "2025-11-09",
+    "2025-12-14",
 }
 
--- LIST OF SUPER SOLOGOLD START DAYS
+-- 2 START DAYS
 local superSoloGoldDays = {
     "2025-05-07",
 }
 
--- LIST OF SUPER SOLOGOLD END DAYS
+-- 2 END DAYS
 local superSoloGoldDaysEnds = {
     "2025-05-14",
 }
 
--- LIST OF PET BATTLE BONUS START DAYS
-local petBattleBonusDays = {
-    "2025-09-07",
-    "2024-11-28",
-    "2024-11-29",
-    "2024-11-30",
-    "2024-12-01",
-    "2024-12-02",
-    "2024-12-03",
-    "2025-01-15",
-    "2025-01-16",
-    "2025-01-17",
-    "2025-01-18",
-    "2025-01-19",
-    "2025-01-20",
-    "2025-01-21",
-    "2025-03-05",
-    "2025-03-06",
-    "2025-03-07",
-    "2025-03-08",
-    "2025-03-09",
-    "2025-03-10",
-    "2025-03-11"
+-- 3 START DAYS
+local GoldBonusDays = {
+    "2025-06-21",
 }
 
--- LIST OF PET BATTLE BONUS END DAYS
-local petBattleBonusDaysEnds = {
-    "2025-09-14",
-    "2024-11-28",
-    "2024-11-29",
-    "2024-11-30",
-    "2024-12-01",
-    "2024-12-02",
-    "2024-12-03",
-    "2025-01-15",
-    "2025-01-16",
-    "2025-01-17",
-    "2025-01-18",
-    "2025-01-19",
-    "2025-01-20",
-    "2025-01-21",
-    "2025-03-05",
-    "2025-03-06",
-    "2025-03-07",
-    "2025-03-08",
-    "2025-03-09",
-    "2025-03-10",
-    "2025-03-11"
+-- 3 END DAYS
+local GoldBonusDaysEnds = {
+    "2025-07-06",
 }
 
 -- FUNCTION TO CONVERT DATE STRINGS TO TIMESTAMPS
@@ -105,8 +63,8 @@ local soloGoldDaysTimestamps = ConvertDateStringsToTimestamps(soloGoldDays)
 local soloGoldDaysEndsTimestamps = ConvertDateStringsToTimestamps(soloGoldDaysEnds)
 local superSoloGoldDaysTimestamps = ConvertDateStringsToTimestamps(superSoloGoldDays)
 local superSoloGoldDaysEndsTimestamps = ConvertDateStringsToTimestamps(superSoloGoldDaysEnds)
-local petBattleBonusDaysTimestamps = ConvertDateStringsToTimestamps(petBattleBonusDays)
-local petBattleBonusDaysEndsTimestamps = ConvertDateStringsToTimestamps(petBattleBonusDaysEnds)
+local GoldBonusDaysTimestamps = ConvertDateStringsToTimestamps(GoldBonusDays)
+local GoldBonusDaysEndsTimestamps = ConvertDateStringsToTimestamps(GoldBonusDaysEnds)
 
 -- FUNCTION TO FORMAT DATE STRING
 local function FormatDateString(dateStr)
@@ -162,7 +120,7 @@ function SoloGold_Calendar:ShowCalendarWindow()
     local fullDate = date("%B %d, %Y")
     local soloGoldStatus, nextSoloGoldStartDate, nextSoloGoldEndDate = self:GetNextEventInfo(soloGoldDaysTimestamps, soloGoldDaysEndsTimestamps)
     local superSoloGoldStatus, nextSuperSoloGoldStartDate, nextSuperSoloGoldEndDate = self:GetNextEventInfo(superSoloGoldDaysTimestamps, superSoloGoldDaysEndsTimestamps)
-    local petBonusStatus, nextPetBonusStartDate, nextPetBonusEndDate = self:GetNextEventInfo(petBattleBonusDaysTimestamps, petBattleBonusDaysEndsTimestamps)
+    local petBonusStatus, nextPetBonusStartDate, nextPetBonusEndDate = self:GetNextEventInfo(GoldBonusDaysTimestamps, GoldBonusDaysEndsTimestamps)
 
     -- ADD CURRENT DAY AND DATE
     local dayLabel = window:CreateFontString(nil, "OVERLAY", "GameFontNormalLarge")
@@ -210,11 +168,11 @@ function SoloGold_Calendar:ShowCalendarWindow()
     petBonusLabel:SetPoint("TOP", superSoloGoldDateLabel, "BOTTOM", 0, -20)
 
     if string.find(petBonusStatus, "Ongoing") then
-        petBonusLabel:SetText("TEST: |cff00ff00" .. petBonusStatus .. "|r")
+        petBonusLabel:SetText("Midsummer Fire Festival: |cff00ff00" .. petBonusStatus .. "|r")
     elseif petBonusStatus == "No Upcoming Dates!" then
-        petBonusLabel:SetText("TEST: |cff00ff00" .. petBonusStatus .. "|r")
+        petBonusLabel:SetText("Midsummer Fire Festival: |cff00ff00" .. petBonusStatus .. "|r")
     else
-        petBonusLabel:SetText("TEST: |cff00ff00" .. petBonusStatus .. " Days Left|r")
+        petBonusLabel:SetText("Midsummer Fire Festival: |cff00ff00" .. petBonusStatus .. " Days Left|r")
     end
 
     local petBonusDateLabel = window:CreateFontString(nil, "OVERLAY", "GameFontNormal")
@@ -236,7 +194,7 @@ function SoloGold_Calendar:CreateCalendarTab()
     tab:SetPoint("BOTTOMRIGHT", CalendarFrame, "BOTTOMRIGHT", 90, -20)
 
     tab.icon = tab:CreateTexture(nil, "ARTWORK")
-    tab.icon:SetTexture("Interface\\Spellbook\\Spellbook-SkillLineTab")
+    tab.icon:SetTexture("Interface\\Spellbook\\spellbook-skilllinetab")
     tab.icon:SetAllPoints()
 
     tab:SetScript("OnLeave", function(self)
@@ -252,7 +210,7 @@ function SoloGold_Calendar:CreateCalendarTab()
     button:SetPoint("CENTER", tab, "CENTER", -18, 6)
 
     button.icon = button:CreateTexture(nil, "ARTWORK")
-    button.icon:SetTexture("Interface\\Icons\\Tracking_WildPet")
+    button.icon:SetTexture("Interface\\Icons\\inv_misc_herb_goldclover")
     button.icon:SetAllPoints()
 
     local highlight = button:CreateTexture(nil, "HIGHLIGHT")
@@ -262,7 +220,7 @@ function SoloGold_Calendar:CreateCalendarTab()
 
     button:SetScript("OnEnter", function(self)
         GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-        GameTooltip:SetText("SoloGold / Pet Battle Bonus Calendar", 1, 1, 1, 1, true)
+        GameTooltip:SetText("Solo Gold Calendar", 1, 1, 1, 1, true)
         GameTooltip:Show()
     end)
 

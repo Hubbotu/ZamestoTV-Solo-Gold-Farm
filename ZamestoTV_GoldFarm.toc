@@ -5,7 +5,7 @@
 ## Notes-ruRU: Все способы заработать золото
 ## Author: ZamestoTV
 ## IconTexture: Interface\AddOns\ZamestoTV_GoldFarm\Icons\goblin
-## Version: 3.3.2
+## Version: 4.0.2
 ## DefaultState: enabled
 ## X-Category: Map
 ## SavedVariables: HandyNotes_GoldDB
@@ -30,16 +30,7 @@ Localization/enUS.lua
 
 handler.lua
 config.lua
-Call.lua
-
-
-
 gold.lua
-timer.lua
 scan.lua
 AutoSelect.lua
-AutoQuest.lua
-AutoQuest2.lua
-TT.lua
-but.lua
-Open.lua
+Call.lua
