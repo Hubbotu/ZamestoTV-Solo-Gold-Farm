@@ -1,0 +1,45 @@
+## Interface: 110100
+## Title: Solo Gold Farm
+## Title-ruRU: Соло Фарм Золота
+## Notes: All ways to earn gold
+## Notes-ruRU: Все способы заработать золото
+## Author: ZamestoTV
+## IconTexture: Interface\AddOns\ZamestoTV_GoldFarm\Icons\goblin
+## Version: 3.3.2
+## DefaultState: enabled
+## X-Category: Map
+## SavedVariables: HandyNotes_GoldDB
+## RequiredDeps: HandyNotes
+## OptionalDeps: 
+## DefaultState: Enabled
+## LoadOnDemand: 0
+## SavedVariables: TestAddonSettingsData, TestAddonSettingsData_MinimapIcon
+## SavedVariables: AutoGossipSavedVars
+## SavedVariables: ZorsROpenableScanEnabled
+## SavedVariablesPerCharacter: 
+
+## Category-enUS: Addons ZamestoTV
+## Category-ruRU: Аддоны ZamestoTV
+
+#@no-lib-strip@
+embeds.xml
+#@end-no-lib-strip@
+
+Localization/ruRU.lua
+Localization/enUS.lua
+
+handler.lua
+config.lua
+Call.lua
+
+
+
+gold.lua
+timer.lua
+scan.lua
+AutoSelect.lua
+AutoQuest.lua
+AutoQuest2.lua
+TT.lua
+but.lua
+Open.lua
